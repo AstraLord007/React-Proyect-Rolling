@@ -13,7 +13,7 @@ export const Navbar = () => {
             <nav>
                 <ul>
                     <li>
-                        <NavLink to='/' className='links'>Personajes</NavLink>
+                        <NavLink end to='/' className='links'>Personajes</NavLink>
                     </li>
                     <li>
                         <NavLink to='/episodes' className='links'>Episodios</NavLink>
