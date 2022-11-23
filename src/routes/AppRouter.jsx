@@ -24,11 +24,8 @@ export const AppRouter = () => {
             <Route path='/deaths' element={<DeathsPage />}/>
             <Route path='/quotes' element={<QuotesPage />}/>
 
-
-
-
             <Route path='*' element={<h1>Error 404 Page not found!!!</h1>}/>
         </Routes>
     </>
-  )  
-}
+  );
+};

@@ -5,20 +5,11 @@ import { Loader } from '../Loader';
 export const Quotes = () => {
   const [quote, setQuote] = useState({});
 
-  /*const getQuoteRandom = async id => {
-      const data = await fetch(
-          'https://www.breakingbadapi.com/api/quote/random'
-      );
-      const quote = await data.json();
-      setQuote(quote[0]);*/
-
   const getQuoteRandom = async id => {
     try {
       const { data } = await axios.get('https://www.breakingbadapi.com/api/quote/random');
       setQuote(data[0]);
-      console.log(data)
     } catch (error) {
-      console.log(error)
       alert('Se produjo un error intentelo luego')
     }
   };
@@ -26,8 +17,6 @@ export const Quotes = () => {
   useEffect(() => {
     getQuoteRandom();
   }, []);
-
-  console.log(quote)
 
   return (
     <>

@@ -4,22 +4,20 @@ import { Loader } from '../Loader';
 
 export const Deaths = () => {
 
-  const [deaths, setDeaths] = useState([])
+  const [deaths, setDeaths] = useState([]);
 
   const getDeaths = async () => {
     try {
       const { data } = await axios.get('https://www.breakingbadapi.com/api/deaths');
       setDeaths(data);
-      console.log(data)
     } catch (error) {
-      console.log(error)
       alert('Se produjo un error intentelo luego')
     }
   };
 
   useEffect(() => {
     getDeaths()
-  }, [])
+  }, []);
 
 
   return (
