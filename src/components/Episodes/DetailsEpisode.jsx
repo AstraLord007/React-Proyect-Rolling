@@ -8,13 +8,6 @@ export const DetailsEpisode = () => {
 
     const { id } = useParams();
 
-    /*const getEpisodeByID = async id => {
-        const data = await fetch(
-            `https://www.breakingbadapi.com/api/episodes/${id}`
-        );
-        const episode = await data.json();
-        setEpisode(episode[0]);*/
-
     const getEpisodeByID = async id => {
         try {
             const { data } = await axios.get(`https://www.breakingbadapi.com/api/episodes/${id}`);
