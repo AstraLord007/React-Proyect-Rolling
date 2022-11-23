@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { DetailsEpisode, Navbar } from '../components';
 import {CharactersPage, EpisodesPage, DeathsPage, DetailsCharactersPage, QuotesPage} from '../Pages';
 import { DetailsEpisodePage } from '../Pages/DetailsEpisodePage';
+import '../App.css';
 
 export const AppRouter = () => {
   return (
