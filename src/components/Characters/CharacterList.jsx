@@ -14,7 +14,6 @@ export const CharacterList = () => {
     const getCharacters = async () => {
         try {
             const { data } = await axios.get('https://www.breakingbadapi.com/api/characters');
-            console.log(data)
             setCharacters(data);
         } catch (error) {
             alert('Se produjo un error intentelo luego')

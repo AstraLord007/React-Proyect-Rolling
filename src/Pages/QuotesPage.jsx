@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Quotes } from '../components/Quotes/Quotes';
 
 export const QuotesPage = () => {
-  return (
-    <div>QuotesPage</div>
-  )
-}
+  return  <div className="container-quote">
+            <Quotes />;
+          </div>
+    
+};
