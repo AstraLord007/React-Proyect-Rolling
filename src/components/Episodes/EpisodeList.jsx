@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Loader } from '../Loader';
 
 export const EpisodeList = () => {
-    const [episodes, setEpisodes] = useState([])
+    const [episodes, setEpisodes] = useState([]);
 
     const getEpisodes = async () => {
         try {

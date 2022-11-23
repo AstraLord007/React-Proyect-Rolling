@@ -9,11 +9,6 @@ export const DetailsCharacter = () => {
 
   const { id } = useParams();
 
-  /*const getCharacterByID = async id => {
-      const data = await fetch(`https://www.breakingbadapi.com/api/characters/${id}`)
-      const character = await data.json()
-      setCharacter(character[0])*/
-
   const getCharacterByID = async id => {
     try {
       const { data } = await axios.get(`https://www.breakingbadapi.com/api/characters/${id}`);
@@ -22,8 +17,6 @@ export const DetailsCharacter = () => {
       alert('Se produjo un error intentelo luego')
     }
   };
-
-  console.log(character)//////////////////////
 
   useEffect(() => {
     getCharacterByID(id);
@@ -71,5 +64,5 @@ export const DetailsCharacter = () => {
         </div>
       )}
     </>
-  )
-}
+  );
+};

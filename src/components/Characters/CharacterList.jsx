@@ -5,13 +5,8 @@ import { Loader } from '../Loader';
 
 export const CharacterList = () => {
 
-    const [characters, setCharacters] = useState([])
+    const [characters, setCharacters] = useState([]);
 
-    /*const getCharacters = async() => {
-        const data = await fetch('https://www.breakingbadapi.com/api/characters')
-        const characters = await data.json()
-        setCharacters(characters)
-    }*/
     const getCharacters = async () => {
         try {
             const { data } = await axios.get('https://www.breakingbadapi.com/api/characters');
