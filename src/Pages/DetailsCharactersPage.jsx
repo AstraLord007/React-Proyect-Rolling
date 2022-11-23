@@ -1,7 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { DetailsCharacter } from '../components/Characters/DetailsCharacter';
 
 export const DetailsCharactersPage = () => {
-  return (
-    <div>DetailsCharatersPage</div>
-  )
-}
+  return <DetailsCharacter />;
+};
