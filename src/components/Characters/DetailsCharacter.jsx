@@ -1,36 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Loader } from '../Loader';
 
 export const DetailsCharacter = () => {
-    
-    const [character, setCharacter] = useState({});
 
-    const { id } = useParams();
+  const [character, setCharacter] = useState({});
 
-    /*const getCharacterByID = async id => {
-        const data = await fetch(`https://www.breakingbadapi.com/api/characters/${id}`)
-        const character = await data.json()
-        setCharacter(character[0])*/
+  const { id } = useParams();
 
-    const getCharacterByID = async id => {
-      try {
-          const { data } = await axios.get(`https://www.breakingbadapi.com/api/characters/${id}`);
-          setCharacter(data[0]);
-      } catch (error) {
-          alert('Se produjo un error intentelo luego')
-      }
-    };
-    
-    console.log(character)
+  /*const getCharacterByID = async id => {
+      const data = await fetch(`https://www.breakingbadapi.com/api/characters/${id}`)
+      const character = await data.json()
+      setCharacter(character[0])*/
 
-    useEffect(() => {
-      getCharacterByID(id);
-    }, []);
-    
+  const getCharacterByID = async id => {
+    try {
+      const { data } = await axios.get(`https://www.breakingbadapi.com/api/characters/${id}`);
+      setCharacter(data[0]);
+    } catch (error) {
+      alert('Se produjo un error intentelo luego')
+    }
+  };
+
+  console.log(character)//////////////////////
+
+  useEffect(() => {
+    getCharacterByID(id);
+  }, []);
+
 
   return (
-      <>
+    <>
+      {Object.entries(character).length ? (
         <div className="details-character">
           <div className="card-img">
             <img src={character.img} alt={character.name} />
@@ -63,6 +65,11 @@ export const DetailsCharacter = () => {
             </p>
           </div>
         </div>
-      </>
+      ) : (
+        <div className='container-loading'>
+          <Loader />
+        </div>
+      )}
+    </>
   )
 }
