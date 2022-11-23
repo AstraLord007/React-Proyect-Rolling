@@ -1,43 +1,364 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	font-family: Poppins;
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #222;
+	color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+img {
+	max-width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header {
+	display: flex;
+	flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+	width: 300px;
+	align-self: center;
+	padding: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navigation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0;
 }
 
+.navigation nav ul {
+	display: flex;
+	gap: 30px;
+}
 
+.navigation nav ul li {
+	list-style: none;
+}
+
+.links {
+	text-decoration: none;
+	color: #777;
+	font-size: 18px;
+	padding: 10px 20px;
+	border-radius: 10px;
+}
+
+.active {
+	background-color: #33333360;
+	color: #f7f7f7;
+}
+
+/* Search */
+/* .input-search {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	margin-right: 20px;
+}
+.input-search input {
+	width: 90%;
+	padding: 7px 30px;
+	border: none;
+	border-radius: 5px;
+	transition: all 0.2s;
+	font-size: 18px;
+  font-family: inherit;
+}
+.input-search i {
+	position: absolute;
+	left: 5px;
+	color: #126734;
+}
+.input-search input:focus {
+	outline: none;
+	width: 100%;
+} */
+
+/* Characters and Episodes */
+
+.characters-list,
+.episodes-list {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 20px;
+	margin-top: 20px;
+}
+
+.card-character,
+.card-episode {
+	padding: 15px;
+	background-color: #33333360;
+	box-shadow: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none;
+	color: #888;
+}
+
+.container-img {
+	overflow: hidden;
+}
+
+.card-character img {
+	height: 300px;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.card-character h1 {
+	font-size: 20px;
+	margin: 8px 0;
+	color: #fff;
+}
+
+/* Details Characters */
+
+.details-character {
+	display: flex;
+	gap: 30px;
+	margin: 20px 0;
+}
+
+.card-img {
+	flex: 1;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-img img {
+	height: 100%;
+}
+
+.card-information {
+	flex: 1;
+}
+
+.card-information h1 {
+	text-align: center;
+	padding-bottom: 15px;
+	position: relative;
+}
+
+.card-information h1::after {
+	content: '';
+	width: 200px;
+	height: 2px;
+	background-color: #555;
+	bottom: 0;
+	right: 33%;
+	position: absolute;
+}
+
+.card-information h2 {
+	margin: 20px 0;
+}
+
+.card-information p {
+	margin: 20px 0;
+	padding: 15px 0;
+	border-bottom: 2px solid #555;
+	display: flex;
+	gap: 15px;
+	font-weight: 500;
+	color: #126734;
+}
+
+.card-information span {
+	font-weight: 700;
+	color: #fff;
+}
+
+#occupation {
+	color: #126734;
+	font-weight: 500;
+}
+
+#occupation ul {
+	margin-top: 15px;
+}
+
+#occupation li {
+	list-style: none;
+	margin-left: 20px;
+	color: #fff;
+	font-weight: 700;
+}
+
+/* Episodes */
+.card-episode img {
+	height: 300px;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.text-episode {
+	display: flex;
+	justify-content: space-between;
+}
+
+.text-episode h1 {
+	font-size: 16px;
+}
+
+.text-episode span {
+	font-weight: 700;
+	margin-right: 20px;
+	color: #126734;
+}
+
+/* Details Characters */
+
+.details-episode {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 0;
+}
+
+.card-information-episode p:not(:last-child) {
+	margin: 20px 0;
+	padding: 15px 0;
+	border-bottom: 2px solid #555;
+	display: flex;
+	gap: 15px;
+	font-weight: 500;
+	color: #126734;
+}
+
+.card-information-episode span {
+	font-weight: 700;
+	color: #fff;
+}
+
+#characters {
+	font-weight: 500;
+	color: #126734;
+}
+
+.card-information-episode ul {
+	margin-top: 15px;
+}
+
+.card-information-episode ul li {
+	list-style: none;
+	margin-left: 20px;
+	color: #fff;
+	font-weight: 700;
+}
+
+/* Quotes */
+.container-quote {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 80vh;
+}
+
+.quote {
+	background-color: #fff;
+	color: #555;
+	padding: 40px 60px;
+	width: 650px;
+	line-height: 2;
+	position: relative;
+	font-family: 'Gelasio', serif;
+	border-left: 10px solid #126734;
+}
+
+.quote-text {
+	font-style: italic;
+	font-size: 20px;
+	line-height: 1.5;
+	margin-bottom: 20px;
+}
+
+.quote-text::before {
+	content: '\201c';
+	font-size: 100px;
+	display: block;
+	margin-bottom: -60px;
+	margin-top: -20px;
+	color: #126734;
+}
+
+.author {
+	text-align: right;
+	font-weight: 700;
+	font-style: italic;
+	font-size: 22px;
+	color: #126734;
+}
+
+.author::before {
+	content: '\2014\0020';
+}
+
+.card-quote button {
+	border: none;
+	background: #126734;
+	color: #fff;
+	padding: 15px 30px;
+	border-radius: 10px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+/* Deaths */
+
+.deaths-list {
+	display: flex;
+	flex-direction: column;
+	margin: 30px 0;
+}
+
+.card-death {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	background-color: #33333360;
+	margin-bottom: 20px;
+	padding: 20px;
+	border-radius: 5px;
+	gap: 20px;
+	place-items: center;
+	text-align: center;
+}
+
+.card-header {
+	background-color: #126734;
+	color: #f7f7f7;
+	text-align: center;
+}
+
+.death_name {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.death_name i {
+	font-size: 30px;
+	color: #fff;
+	margin-right: 10px;
+}
 
 /* Loader */
 
