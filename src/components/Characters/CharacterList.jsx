@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Loader } from '../Loader';
 
 export const CharacterList = () => {
 
@@ -21,27 +22,36 @@ export const CharacterList = () => {
     };
 
     useEffect(() => {
-      getCharacters()
+        getCharacters()
     }, []);
 
 
-  return (
-    <>
-        <p>Se encontraron {characters.length} resultados.</p>
-        <div className='characters-list'>
-            {characters.map(character => (
-                <Link 
-                    to={`/characters/${character.char_id}`}
-                    key={character.char_id}
-                    className='card-character'
-                >
-                    <div className="container-img">
-                        <img src={character.img} alt={character.name} />
+    return (
+        <>
+            {characters.length ? (
+                <>
+                    <p>Se encontraron {characters.length} resultados.</p>
+                    <div className='characters-list'>
+                        {characters.map(character => (
+                            <Link
+                                to={`/characters/${character.char_id}`}
+                                key={character.char_id}
+                                className='card-character'
+                            >
+                                <div className="container-img">
+                                    <img src={character.img} alt={character.name} />
+                                </div>
+                                <h1>{character.name}</h1>
+                            </Link>
+                        ))}
                     </div>
-                    <h1>{character.name}</h1>
-                </Link>
-            ))}
-        </div>
-    </>
-  )
-}
+                </>
+            ) : (
+                <div className='container-loading'>
+                    <Loader />
+                </div>
+            )
+            }
+        </>
+    );
+};

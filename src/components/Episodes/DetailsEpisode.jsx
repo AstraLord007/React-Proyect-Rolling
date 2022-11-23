@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Loader } from '../Loader';
 
 export const DetailsEpisode = () => {
     const [episode, setEpisode] = useState({});
@@ -13,7 +14,7 @@ export const DetailsEpisode = () => {
         );
         const episode = await data.json();
         setEpisode(episode[0]);*/
-        
+
     const getEpisodeByID = async id => {
         try {
             const { data } = await axios.get(`https://www.breakingbadapi.com/api/episodes/${id}`);
@@ -22,29 +23,37 @@ export const DetailsEpisode = () => {
             console.log(error)
             alert('Se produjo un error intentelo luego')
         }
-    };       
+    };
 
     useEffect(() => {
-      getEpisodeByID(id);
+        getEpisodeByID(id);
     }, []);
 
-  return (
-    <div className="details-episode">
-        <div className="card-information-episode">
-            <p>Titulo de Episodio: <span>{episode.title}</span></p>
-            <p>Numero de Episodio: <span>{episode.episode}</span></p>
-            <p>Temporada: <span>{episode.season}</span></p>
-            <p>Fecha de Estreno: <span>{episode.air_date}</span></p>
+    return (
+        <>
+        {Object.entries(episode).length ? (
+            <div className="details-episode">
+                <div className="card-information-episode">
+                    <p>Titulo de Episodio: <span>{episode.title}</span></p>
+                    <p>Numero de Episodio: <span>{episode.episode}</span></p>
+                    <p>Temporada: <span>{episode.season}</span></p>
+                    <p>Fecha de Estreno: <span>{episode.air_date}</span></p>
 
-            <span id='characters'>
-                Personajes:
-                <ul>
-                    {episode.characters?.map(character => (
-                        <li key={character}>{character}</li>
-                    ))}
-                </ul>
-            </span>
-        </div>
-    </div>
-  )
-}
+                    <span id='characters'>
+                        Personajes:
+                        <ul>
+                            {episode.characters?.map(character => (
+                                <li key={character}>{character}</li>
+                            ))}
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            ) : (
+                <div className='container-loading'>
+                    <Loader />
+                </div>
+            )}
+        </>
+    )
+};
